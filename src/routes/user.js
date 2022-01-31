@@ -1,9 +1,9 @@
 import express from "express";
-import defaultController from "../controllers/user/defaultController.js";
-import { authRequired } from "../controllers/auth/authController.js";
+// import defaultController from "../controllers/defaultController.js";
+// import { authRequired } from "../controllers/auth/authController.js";
 
 import { getBlogs, getBlog, createBlog, updateBlog, deleteBlog } from "../controllers/blogs.js";
-import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js";
+// import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js";
 
 const Router = express.Router();
 

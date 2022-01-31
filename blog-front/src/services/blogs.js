@@ -9,7 +9,7 @@ export const getBlogs = async () => {
   }
 }
 
-export const getProduct = async id => {
+export const getBlog = async id => {
   try {
     const response = await api.get(`/blogs/${id}`)
     return response.data

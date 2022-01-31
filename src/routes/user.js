@@ -1,54 +1,20 @@
 import express from "express";
-import defaultController from "../controllers/defaultController.js";
-import { authRequired } from "../controllers/auth/authController.js";
+// import defaultController from "../controllers/defaultController.js";
+// import { authRequired } from "../controllers/auth/authController.js";
 
-import { fetchAllUsers, deleteUser, updateUser, findUserById} from "../controllers/user/user.controller.js";
-import { signUpUser, loginUser, logoutUser} from "../controllers/auth/authController.js";
+import { getBlogs, getBlog, createBlog, updateBlog, deleteBlog } from "../controllers/blogs.js";
+// import { signUpUser, loginUser, logoutUser } from "../controllers/auth/authController.js";
 
 const Router = express.Router();
 
-/**
- * Home Route
- */
-Router.get("/", defaultController)
+Router.get("/blogs", getBlogs)
 
-	/**
-	 * Create/Signup User
-	 */
-	.post("/signup", signUpUser)
+  .get("/blogs/:id", getBlog)
 
-	/**
-	 * Get all user(s)
-	 */
-  .get("/users", fetchAllUsers)
-  
-  /**
-	 * Log In user(s)
-	 */
-  .post("/login", loginUser)
+  .post("/blogs", createBlog)
 
-  /**
-	 * Log Out user(s)
-	 */
+  .put("/blogs/:id", updateBlog)
 
-  .get("/logout", logoutUser)
-
-    /**
-	 * Delete user(s)
-	 */
-  .delete("/delete/:id", deleteUser)
-
-  /**
-  * Update user(s)
-  */
-
-  .put("/update/:userName", updateUser)
-  
-  /**
-  * Find user(s)
-  */
-
-  .get("/user/:id", findUserById)
-  
+  .delete("/blogs/:id", deleteBlog)
 
 export default Router;
